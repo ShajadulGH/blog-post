@@ -12,7 +12,7 @@ import PostDetailPage from "./pages/PostDetail";
 import RootLayout from "./components/RootLayout";
 import WelcomePage from "./pages/Welcome";
 import { loader as blogLoader } from "./pages/BlogPosts";
-
+import { loader as blogDetailLoader } from "./pages/PostDetail";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,7 +20,11 @@ function App() {
         <Route index element={<WelcomePage />} />
         <Route path="/blog" element={<BlogLayout />}>
           <Route index element={<BlogPostsPage />} loader={blogLoader} />
-          <Route path=":id" element={<PostDetailPage />} />
+          <Route
+            path=":id"
+            element={<PostDetailPage />}
+            loader={blogDetailLoader}
+          />
         </Route>
         <Route path="/blog/new" element={<NewPostPage />} />
       </Route>
