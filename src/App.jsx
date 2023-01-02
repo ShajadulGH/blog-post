@@ -13,6 +13,7 @@ import RootLayout from "./components/RootLayout";
 import WelcomePage from "./pages/Welcome";
 import { loader as blogLoader } from "./pages/BlogPosts";
 import { loader as blogDetailLoader } from "./pages/PostDetail";
+import { action } from "./pages/NewPost";
 import Error from "./pages/Error";
 function App() {
   const router = createBrowserRouter(
@@ -27,7 +28,7 @@ function App() {
             loader={blogDetailLoader}
           />
         </Route>
-        <Route path="/blog/new" element={<NewPostPage />} />
+        <Route path="/blog/new" element={<NewPostPage />} action={action} />
       </Route>
     )
   );
