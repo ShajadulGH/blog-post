@@ -13,10 +13,11 @@ import RootLayout from "./components/RootLayout";
 import WelcomePage from "./pages/Welcome";
 import { loader as blogLoader } from "./pages/BlogPosts";
 import { loader as blogDetailLoader } from "./pages/PostDetail";
+import Error from "./pages/Error";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootLayout />}>
+      <Route path="/" element={<RootLayout />} errorElement={<Error />}>
         <Route index element={<WelcomePage />} />
         <Route path="/blog" element={<BlogLayout />}>
           <Route index element={<BlogPostsPage />} loader={blogLoader} />
